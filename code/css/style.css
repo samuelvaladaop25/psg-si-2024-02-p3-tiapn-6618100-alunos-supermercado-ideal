@@ -164,3 +164,20 @@ body {
     margin-top: 10px;
     font-size: 14px;
 }
+
+#status::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+.aberto::after {
+    background-color: green;  /* Bolinha verde */
+}
+
+.fechado::after {
+    background-color: red;  /* Bolinha vermelha */
+}
