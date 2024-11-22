@@ -1,0 +1,126 @@
+
+html, body {
+    overflow: hidden;
+  }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f7f7f7;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(179, 178, 178);
+}
+
+#tLogo {
+    font-weight: bold;
+}
+
+#usuario {
+    width: 28px;
+    height: 28px;
+}
+
+.navbar .left {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    border-right: 2px solid rgb(179, 178, 178);
+    padding-right: 38px;
+}
+
+.navbar img {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 15px;
+}
+
+.navbar .right {
+    display: flex;
+    align-items: center;
+    border-left: solid 2px rgb(179, 178, 178);
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
+.navbar .profile {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.navbar .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.navbar .profile p {
+    margin: 0;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.navbar .center {
+    display: flex;
+    gap: 30px; 
+}
+
+.navbar .center span {
+    margin: 2px 0;
+    font-size: 14px;
+}
+
+
+
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background-color: #f7f7f7;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    position: fixed;
+    border-right: 1px solid rgb(179, 178, 178);
+}
+
+.nav-item {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    margin: 0px 0;
+    padding: 20px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: background-color 0.3s;
+    border: 1px solid rgb(179, 178, 178);
+    border-top: none;
+    font-size: 16px;
+}
+
+.nav-item img {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    margin-left: 15px;
+    
+}
+
+.nav-item:hover {
+    border: 2px solid black;
+    
+}
+
+
+
