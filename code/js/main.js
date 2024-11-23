@@ -1,35 +1,3 @@
-async function carregarUsuarios() {
-    try {
-        const resposta = await fetch('users.json'); 
-        const usuarios = await resposta.json(); 
-        return usuarios; 
-    } catch (erro) {
-        console.error('Erro ao carregar usuários:', erro);
-    }
-}
-
-async function verificarLogin(event) {
-    event.preventDefault(); 
-
-    const usuarioDigitado = document.getElementById("usuario-input").value;
-    const senhaDigitada = document.getElementById("senha-input").value;
-    const mensagemErro = document.getElementById("mensagem-erro");
-
-    const usuarios = await carregarUsuarios();
-
-    const usuarioValido = usuarios.find(user => user.usuario === usuarioDigitado && user.senha === senhaDigitada);
-
-    if (usuarioValido) {
-        mensagemErro.textContent = ""; 
-        document.querySelector(".profile p").textContent = usuarioDigitado; 
-        document.querySelector(".login-container").style.display = "none"; 
-    } else {
-        mensagemErro.textContent = "Usuário ou senha incorretos.";
-    }
-}
-
-document.getElementById("login-form").addEventListener("submit", verificarLogin);
-
 function updateDateTime() {
     const now = new Date();
     const date = now.toLocaleDateString('pt-BR');

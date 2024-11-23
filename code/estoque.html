@@ -1,41 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style-reposiçao.css">
-
-
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style-reposicao.css">
+    <title>Estoque de Produtos</title>
 </head>
 <body>
 
     <div class="navbar">
-
-
         <div class="left">
             <img src="Img/carrinho-de-compras.png" alt="Logo">
-            <span id ="tLogo">Supermercado ideal </span>
+            <span id="tLogo">Supermercado ideal </span>
         </div>
-
         <div class="center">
             <span id="date">Data</span>
             <span id="time">Hora</span>
             <span id="status">Aberto</span>
         </div>
-
         <div class="right">
             <div class="profile">
-                <img  id="usuario" src="Img/usuario-de-perfil.png" alt="Imagem de Perfil">
+                <img id="usuario" src="Img/usuario-de-perfil.png" alt="Imagem de Perfil">
                 <p>Usuário</p>
             </div>
         </div>
-
-
     </div>
-
 
     <div class="sidebar">
         <a href="index.html" class="nav-item">
@@ -55,7 +45,61 @@
             <span>Reposição<br> de produtos</span>
         </a>
     </div>
-   
+
+    <div class="content">
+        <h2>Produtos em Estoque</h2>
+        <table id="tabela-produtos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Quantidade Atual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function carregarProdutos() {
+            try {
+                const response = await fetch('http://localhost:3000/api/produtos');
+                
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar os produtos');
+                }
+
+                const produtos = await response.json();
+
+                const tabelaProdutos = document.querySelector('#tabela-produtos tbody');
+                
+                tabelaProdutos.innerHTML = '';
+
+                produtos.forEach(produto => {
+                    const tr = document.createElement('tr');
+                    
+                    tr.innerHTML = `
+                        <td>${produto.ID}</td>
+                        <td>${produto.Nome}</td>
+                        <td>${produto.Descricao || 'N/A'}</td>
+                        <td>R$ ${produto.Preco.toFixed(2)}</td>
+                        <td>${produto.Quant_Atual}</td>
+                    `;
+                    
+                    tabelaProdutos.appendChild(tr);
+                });
+            } catch (error) {
+                console.error('Erro ao carregar os produtos:', error);
+            }
+        }
+
+        window.onload = carregarProdutos;
+    </script>
+
     <script src="js/main.js"></script>
 </body>
 </html>
